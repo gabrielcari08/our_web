@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Our Web{% endblock %}</title>
+    
+    <!-- Enlace al archivo CSS romántico -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Header principal con estilo romántico -->
+    <div class="main-header">
+        <h1>{% block header %}Un Amor, Una Web{% endblock %}</h1>
+    </div>
+
+    <!-- Barra de navegación con efectos románticos -->
+    <div class="nav-container">
+        <a href="{% url 'home' %}">💕 Inicio</a>
+        <a href="{% url 'album' %}">📸 Album</a>
+        <a href="{% url 'videos' %}">🎥 Videos</a>
+        <a href="{% url 'counter' %}">⏰ Contador</a>
+        <a href="{% url 'cards' %}">💌 Cartas</a>
+    </div>
+
+    <!-- Contenedor del contenido principal -->
+    <div class="content-wrapper">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+</body>
+</html>

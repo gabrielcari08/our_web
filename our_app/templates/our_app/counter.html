@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Contador{% endblock %}
+
+{% block content %}
+<div class="contador-container fade-in">
+    <h1 class="contador-title">Este es el tiempo que llevamos juntos</h1>
+    <p class="contador-subtitle">
+        Que la historia se siga escribiendo...
+    </p>
+
+    <div class="countdown-box">
+        <div id="countdown-display">
+            <!-- Valores iniciales renderizados por Django -->
+            {{ days }} días, {{ hours }} horas, {{ minutes }} minutos
+        </div>
+    </div>
+
+    <script>
+        // Define la fecha de inicio en JavaScript (en milisegundos desde la época Unix)
+        // Usamos el formato YYYY-MM-DD para compatibilidad
+        const startDate = new Date('2024-06-06T00:00:00').getTime();
+
+        // Función para actualizar el contador
+        function updateCounter() {
+            const now = new Date().getTime(); // Tiempo actual en milisegundos
+            const distance = now - startDate; // Diferencia en milisegundos
+
+            // Cálculos para días, horas, minutos y segundos
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Muestra el resultado en el elemento HTML
+            document.getElementById('countdown-display').innerHTML =
+                `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+        }
+
+        // Llama a la función una vez al cargar la página para mostrar el valor inicial
+        updateCounter();
+
+        // Actualiza el contador cada segundo
+        setInterval(updateCounter, 1000);
+    </script>
+{% endblock %}

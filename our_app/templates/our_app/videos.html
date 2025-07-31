@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+<div class="gallery-container fade-in">
+    <h1 class="gallery-title">Aquí irán los videos</h1>
+    
+    <div class="media-grid">
+        <div class="media-card">
+            <video src="{% static 'videos/Video de WhatsApp 2025-07-31 a las 11.49.57_010ae37c.mp4' %}" controls></video>
+        </div>
+        <div class="media-card">
+            <video src="{% static 'videos/Video de WhatsApp 2025-07-31 a las 11.49.57_3386b069.mp4' %}" controls></video>
+        </div>
+        <div class="media-card">
+            <video src="{% static 'videos/Video de WhatsApp 2025-07-31 a las 11.52.46_e69394e2.mp4' %}" controls></video>
+        </div>
+        <div class="media-card">
+            <video src="{% static 'videos/Video de WhatsApp 2025-07-31 a las 11.52.48_c26db2f5.mp4' %}" controls></video>
+        </div>
+        <div class="media-card">
+            <video src="{% static 'videos/Video de WhatsApp 2025-07-31 a las 11.53.38_af3425e2.mp4' %}" controls></video>
+        </div>
+        <div class="media-card">
+            <video src="{% static 'videos/Video de WhatsApp 2025-07-31 a las 11.53.38_df9eac87.mp4' %}" controls></video>
+        </div>
+    </div>
+</div>
+{% endblock %}
